@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using FoodOrdering.DBAccess;
+
 
 using FoodOrdering.Model;
 
@@ -13,17 +15,17 @@ namespace FoodOrdering.Controller
     [Route("[controller]/[action]")]
     public class FoodItemController : ControllerBase
     {
-        private readonly FoodItemContext _Context;
-        public FoodItemController(FoodItemContext Context)
+        private readonly DBConnection _Context;
+        public FoodItemController(DBConnection Context)
         {
             _Context = Context;
         }
-        [HttpGet]
+        [HttpGet]/*
         public async Task<IEnumerable<FoodItem>> Get()
         {
-            return await _Context.FoodItems.GetAsync();
-        }
+            return await _Context..GetAsync();
+        }*/
 
-        
+
     }
 }
