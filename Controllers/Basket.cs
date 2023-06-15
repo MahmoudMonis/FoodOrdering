@@ -1,72 +1,66 @@
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using FoodOrdering.Model;
 
-namespace FoodOrdering.Controller
+namespace Basket.Controllers
 {
     [ApiController]
     [Route("[controller]/[action]")]
     public class BasketController : ControllerBase
     {
-        private static List<BasketItem> basketItems = new List<BasketItem>();
+        private static List<FoodItem> foodItems = new List<FoodItem>();
 
         [HttpGet]
-        public IActionResult GetBasketItems()
+        public IActionResult GetFoodItems()
         {
-            return Ok(basketItems);
+            return Ok(foodItems);
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetBasketItem(int id)
+        public IActionResult GetFoodItem(int id)
         {
-            BasketItem basketItem = basketItems.Find(item => item.Id == id);
-            if (basketItem == null)
+            FoodItem foodItem = foodItems.Find(item => item.FoodItemId == id);
+            if (foodItem == null)
             {
                 return NotFound();
             }
-            return Ok(basketItem);
+            return Ok(foodItem);
         }
 
         [HttpPost]
-        public IActionResult AddToBasket(BasketItem item)
+        public IActionResult AddToBasket(FoodItem item)
         {
-            item.Id = basketItems.Count + 1;
-            basketItems.Add(item);
-            return CreatedAtAction(nameof(GetBasketItem), new { id = item.Id }, item);
+            item.FoodItemId = foodItems.Count + 1;
+            foodItems.Add(item);
+            return CreatedAtAction(nameof(GetFoodItem), new { id = item.FoodItemId }, item);
         }
 
         [HttpPut("{id}")]
-        public IActionResult UpdateBasketItem(int id, BasketItem item)
+        public IActionResult UpdateBasketItem(int id, FoodItem item)
         {
-            BasketItem basketItem = basketItems.Find(i => i.Id == id);
-            if (basketItem == null)
+            FoodItem foodItem = foodItems.Find(i => i.FoodItemId == id);
+            if (foodItem == null)
             {
                 return NotFound();
             }
-            basketItem.Name = item.Name;
-            basketItem.Price = item.Price;
+            foodItem.Name = item.Name;
+            foodItem.Price = item.Price;
             return NoContent();
         }
 
         [HttpDelete("{id}")]
         public IActionResult DeleteBasketItem(int id)
         {
-            BasketItem basketItem = basketItems.Find(item => item.Id == id);
-            if (basketItem == null)
+            FoodItem foodItem = foodItems.Find(item => item.FoodItemId == id);
+            if (foodItem == null)
             {
                 return NotFound();
             }
-            basketItems.Remove(basketItem);
+            foodItems.Remove(foodItem);
             return NoContent();
         }
-    }
-
-    public class BasketItem
-    {
-        public int Id { get; set; }
-        public string? Name { get; set; }
-        public decimal Price { get; set; }
     }
 }

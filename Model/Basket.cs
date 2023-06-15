@@ -9,8 +9,8 @@ namespace FoodOrdering.Model
     {
         public int Id { get; set; }
         public int FoodItemId { get; set; }
-        public string FoodItemName { get; set; }
-        public string UserId { get; set; }
+        public string? FoodItemName { get; set; }
+        public string? UserId { get; set; }
 
     }
 }

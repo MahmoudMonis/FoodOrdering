@@ -1,15 +1,15 @@
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-
+using FoodOrdering.Model;
 
 [ApiController]
 [Route("[controller]/[action]")]
 public class UsersController : ControllerBase
 {
-    private static List<User> users = new List<User>();
+    private List<User> users = new List<User>(); 
 
     [HttpGet]
     public IActionResult GetUsers()
@@ -60,11 +60,4 @@ public class UsersController : ControllerBase
         users.Remove(user);
         return NoContent();
     }
-}
-
-public class User
-{
-    public int Id { get; set; }
-    public string? Name { get; set; }
-    public string? Email { get; set; }
 }
