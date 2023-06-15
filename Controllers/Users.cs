@@ -22,7 +22,7 @@ public class UsersController : ControllerBase
     [HttpGet("{id}")]
     public IActionResult GetUser(int id)
     {
-        User user = users.Find(u => u.Id == id);
+        User? user = users.Find(u => u.Id == id);
         if (user == null)
         {
             return NotFound();
@@ -41,7 +41,7 @@ public class UsersController : ControllerBase
     [HttpPut("{id}")]
     public IActionResult UpdateUser(int id, User user)
     {
-        User existingUser = users.Find(u => u.Id == id);
+        User? existingUser = users.Find(u => u.Id == id);
         if (existingUser == null)
         {
             return NotFound();
@@ -54,7 +54,7 @@ public class UsersController : ControllerBase
     [HttpDelete("{id}")]
     public IActionResult DeleteUser(int id)
     {
-        User user = users.Find(u => u.Id == id);
+        User? user = users.Find(u => u.Id == id);
         if (user == null)
         {
             return NotFound();

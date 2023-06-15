@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace FoodOrdering.Model
 {
-    public class Basket
+    public class Basket1
     {
         public int Id { get; set; }
         public int FoodItemId { get; set; }

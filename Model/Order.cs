@@ -15,6 +15,6 @@ namespace FoodOrdering.Model
 
         public string? UserId { get; set; }
 
-        public Basket Basket { get; set; }
+        public Basket1? Basket { get; set; }
     }
 }

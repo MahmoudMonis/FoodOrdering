@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using FoodOrdering.Model;
+using Microsoft.EntityFrameworkCore;
 using System.Text.Json;
 
 namespace FoodOrdering.Controllers
@@ -29,7 +30,7 @@ namespace FoodOrdering.Controllers
 
             if (checkitemexisiens(subcategory.Name))
             {
-                Subcategory item = _subcategories.Find(x => x.Name == subcategory.Name);
+                Subcategory? item = _subcategories.Find(x => x.Name == subcategory.Name);
                 bool changes = false;
                 if (item.Name != subcategory.Name) { item.Name = subcategory.Name; changes = true; } else {/*Nothing To Update */}
                 if (item.CategoryId != subcategory.CategoryId) { item.CategoryId = subcategory.CategoryId; changes = true; } else {/*Nothing To Update */}
@@ -69,7 +70,7 @@ namespace FoodOrdering.Controllers
 
         private bool checkitemexisiens(string Name)
         {
-            Subcategory item = _subcategories.Find(x => x.Name == Name);
+            Subcategory? item = _subcategories.Find(x => x.Name == Name);
             if (item != null && item.Name != null) { return true; } else { return false; }
         }
 
