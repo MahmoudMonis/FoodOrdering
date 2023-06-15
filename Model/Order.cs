@@ -9,12 +9,12 @@ namespace FoodOrdering.Model
     {
         public int Id { get; set; }
 
-        public string? OrderName { get; set; }
+        public string OrderName { get; set; }
 
         public double Total { get; set; }
 
-        public string? UserId { get; set; }
+        public string UserId { get; set; }
 
-        public Basket1? Basket { get; set; }
+        public Basket1 Basket { get; set; }
     }
 }

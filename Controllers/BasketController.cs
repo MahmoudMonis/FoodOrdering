@@ -24,7 +24,7 @@ namespace Basket.Controllers
         [HttpGet("{id}")]
         public IActionResult GetFoodItem(int id)
         {
-            FoodItem? foodItem = foodItems.Find(item => item.FoodItemId == id);
+            FoodItem foodItem = foodItems.Find(item => item.FoodItemId == id);
             if (foodItem == null)
             {
                 return NotFound();
@@ -43,7 +43,7 @@ namespace Basket.Controllers
         [HttpPut("{id}")]
         public IActionResult UpdateBasketItem(int id, FoodItem item)
         {
-            FoodItem? foodItem = foodItems.Find(i => i.FoodItemId == id);
+            FoodItem foodItem = foodItems.Find(i => i.FoodItemId == id);
             if (foodItem == null)
             {
                 return NotFound();
@@ -56,7 +56,7 @@ namespace Basket.Controllers
         [HttpDelete("{id}")]
         public IActionResult DeleteBasketItem(int id)
         {
-            FoodItem? foodItem = foodItems.Find(item => item.FoodItemId == id);
+            FoodItem foodItem = foodItems.Find(item => item.FoodItemId == id);
             if (foodItem == null)
             {
                 return NotFound();

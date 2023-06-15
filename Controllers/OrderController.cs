@@ -22,7 +22,7 @@ public class OrderController : ControllerBase
     [HttpGet("{id}")]
     public IActionResult GetOrder(int id)
     {
-        Order? order = orders.Find(o => o.Id == id);
+        Order order = orders.Find(o => o.Id == id);
         if (order == null)
         {
             return NotFound();
@@ -54,7 +54,7 @@ public class OrderController : ControllerBase
     [HttpDelete("{id}")]
     public IActionResult DeleteOrder(int id)
     {
-        Order? order = orders.Find(o => o.Id == id);
+        Order order = orders.Find(o => o.Id == id);
         if (order == null)
         {
             return NotFound();
