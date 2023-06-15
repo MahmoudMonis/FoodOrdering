@@ -13,6 +13,7 @@ namespace FoodOrdering.Model
 
         public double Total { get; set; }
 
+        public string UserId { get; set; }
 
         public Basket basket { get; set; }
     }

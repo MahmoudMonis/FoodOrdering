@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 
-namespace Basket.Controllers
+namespace FoodOrdering.Controller
 {
     [ApiController]
     [Route("[controller]/[action]")]
