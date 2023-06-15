@@ -9,7 +9,7 @@ namespace FoodOrdering.Model
     {
         public int Id { get; set; }
 
-        public string? Name { get; set; }
+        public string? OrderName { get; set; }
 
         public double Total { get; set; }
 
