@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FoodOrdering.ViewModels
+namespace FoodOrdering.ViewModels.vm
 {
     public class CreateFoodItemVM
     {
